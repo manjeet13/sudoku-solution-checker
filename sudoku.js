@@ -62,8 +62,8 @@ function rotate_solution(rows) {
 
 //validate each 3X3 region by plucking out the values into an array of 9 elements (similar to a row)
 function regionize_solution(rows) {
-	return board.map( function(row, index) {
-    	return pluck_region(board, index);
+	return rows.map( function(row, index) {
+    	return pluck_region(rows, index);
   });
 }
 
