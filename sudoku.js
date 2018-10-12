@@ -36,17 +36,30 @@ function validate_row(rows) {
 	for(let i in row) {
 		validation_array[row[i]]++;
 	}
+  if(check_elements(validation_array)) {
+    if ( rows.length > 1 ) {
+      var next_rows = rows.slice(1);
+      return validate_rows( next_rows );
+    }
+  }
 
 	//check each element from 1 to 9 occurs exactly once
-	for(let i in validation_array)  {
-		if(i==0) continue;
-		else if(validation_array[i] != 1) {
-			//wrong solution
-			return false;
-		}
-	}
+	
 	//if passed the loop, row is correct
 	return true;
+}
+
+
+
+function check_elements(validation_array) {
+  for(let i in validation_array)  {
+    if(i==0) continue;
+    else if(validation_array[i] != 1) {
+      //wrong solution
+      return false;
+    }
+  }
+  return true;
 }
 
 
